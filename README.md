@@ -1,7 +1,5 @@
 # README
 
-postgres://searchbox_dliw_user:kX9vJkaCCg6LBdRqRY82ORMTYm37Pg3t@dpg-ch8clhesi8uhth6hfa4g-a/searchbox_dliw
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
