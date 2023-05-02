@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: searchbox_demo_production
   username: searchbox_demo
   password: <%= ENV["SEARCHBOX_DEMO_DATABASE_PASSWORD"] %>

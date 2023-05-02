@@ -16,6 +16,7 @@
 body {
   box-sizing: border-box;
   padding: 2rem 2.5rem;
+  background-color: #f1f6f9;
 }
 
 *,
@@ -46,6 +47,7 @@ a:visited {
 
 h1 {
   font-size: 4rem;
+  color: #394867;
 }
 
 h3 {
@@ -61,10 +63,47 @@ p {
   font-size: 1.8rem;
 }
 
+label {
+  font-size: 1.6rem;
+}
+
 .title {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .paragraph-title {
   display: flex;
+  align-items: baseline;
+  color: #212a3e;
+  margin: 0 auto;
+}
+
+.form-control {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.btn-submit {
+  border: 1px solid rgb(205, 243, 243);
+  background-color: #9ba4b5;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.articles-link {
+  font-size: 2rem;
+  text-transform: uppercase;
 }

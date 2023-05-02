@@ -1,28 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Articles</h1>
 
-<%= form_with(url: articles_path, method: :get, data: {controller: "search-form", turbo_frame: "articles"}) do |form| %>
-  <%= form.label :query, "Search by article name" %>
+<%= form_with(url: articles_path, method: :get, data: {controller: "search-form", turbo_frame: "articles"}, class:"search-form") do |form| %>
+  <h1 class="form-h1">Articles</h1>
+  <%= form.label :query, "Search by article name"  %>
+  <div>
   <%= form.text_field :query, data: {action: "input->search-form#search"} %>
-  <%= form.submit %>
+  <%= form.submit class: "btn-submit" %>
+  </div>
 <%end%>
 
-<div class="container">
   <%= render "articles", articles: @articles %>
+<div class="container">
+  <h3>Global Trends</h3>
+  <ul>
+    <% @trends.each do |trend|  %>
+      <li><%= trend.query%></li>
+    <%end%>
+  </ul>
+
+  <h3>Your Search Trends</h3>
+  <ul>
+    <% @local.each do |local|%>
+      <li><%= local.query %></li>
+    <%end%>
+  </ul>
+
 </div>
-<h3>Global Trends</h3>
-<ul>
-  <% @trends.each do |trend|  %>
-    <li><%= trend.query%></li>
-  <%end%>
-</ul>
-
-<h3>Your Search Trends</h3>
-<ul>
-  <% @local.each do |local|%>
-    <li><%= local.query %></li>
-  <%end%>
-</ul>
-
 <%= link_to "New article", new_article_path %>
