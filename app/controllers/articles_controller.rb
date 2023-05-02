@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
       if params[:query].end_with?('?')
         @search = Search.find_or_create_by(query: params[:query])
         @search.increment(:count)
+        @search.user = current_user
         @search.save
       end
       @articles = Article.where("title LIKE ?", "%#{params[:query]}%")
@@ -88,5 +89,6 @@ class ArticlesController < ApplicationController
 
     def set_trends
       @trends = Search.all.order(count: :desc).limit(5)
+      @local = Search.where(user_id: current_user).order(count: :desc).limit(5)
     end
 end
