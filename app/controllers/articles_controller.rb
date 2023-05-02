@@ -1,10 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_trends, only: [:index]
   before_action :authenticate_user!
 
   # GET /articles or /articles.json
   def index
     if params[:query].present?
+      if params[:query].end_with?('?')
+        @search = Search.find_or_create_by(query: params[:query])
+        @search.increment(:count)
+        @search.save
+      end
       @articles = Article.where("title LIKE ?", "%#{params[:query]}%")
     else
       @articles = Article.all
@@ -14,6 +20,8 @@ class ArticlesController < ApplicationController
     else
       render :index
     end
+
+
   end
 
   # GET /articles/1 or /articles/1.json
@@ -76,5 +84,9 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title)
+    end
+
+    def set_trends
+      @trends = Search.all.order(count: :desc).limit(5)
     end
 end

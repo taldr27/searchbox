@@ -11,5 +11,10 @@
 <div class="container">
   <%= render "articles", articles: @articles %>
 </div>
-
+<h2>Trends</h2>
+<ul>
+  <% @trends.each do |trend|  %>
+    <li><%= trend.query%></li>
+  <%end%>
+</ul>
 <%= link_to "New article", new_article_path %>
