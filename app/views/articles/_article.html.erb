@@ -1,8 +1,9 @@
 <div id="<%= dom_id article %>">
-  <p>
-     <%= article.title%> 
-  </p>
-  <p>
+  <div class="paragraph-title">
+      <h3><strong>Title:</strong></h3>
+      <strong class="title"><%= article.title%> </strong> 
+  </div>
+  <p class="paragraph-title">
     <strong>User:</strong>
     <%= article.user.username %>
   </p>
