@@ -1,6 +1,10 @@
 <div id="<%= dom_id article %>">
   <p>
-    <%= link_to article.title, article_path(article) %>
+     <%= article.title%> 
+  </p>
+  <p>
+    <strong>User:</strong>
+    <%= article.user.username %>
   </p>
 
 </div>
